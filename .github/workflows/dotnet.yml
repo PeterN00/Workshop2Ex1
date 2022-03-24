@@ -23,3 +23,5 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test ./Workshop2Ex1.sln --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish ./Workshop2Ex1.sln

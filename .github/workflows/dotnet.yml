@@ -25,3 +25,8 @@ jobs:
       run: dotnet test ./Workshop2Ex1.sln --no-build --verbosity normal
     - name: Publish
       run: dotnet publish ./Workshop2Ex1.sln
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: ./Workshop2Ex1/bin/Debug/netcoreapp3.1

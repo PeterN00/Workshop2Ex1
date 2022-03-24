@@ -1,0 +1,25 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore ./Workshop2Ex1.sln
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test ./Workshop2Ex1.sln --no-build --verbosity normal
